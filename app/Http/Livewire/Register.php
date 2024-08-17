@@ -28,8 +28,6 @@ class Register extends Component
     {
         $this->validate();
 
-        // dd($this);
-
         User::create([
             'name' => $this->name,
             'email' => $this->email,
