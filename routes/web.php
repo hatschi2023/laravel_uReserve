@@ -34,6 +34,7 @@ Route::middleware([
 Route::prefix('manager')
 ->middleware('can:manager-higher')
 ->group(function(){
+    Route::get('events/past', [EventController::class, 'past'])->name('events.past');
     Route::resource('events', EventController::class);
 });
 
@@ -43,7 +44,6 @@ Route::middleware('can:user-higher')
         dd('user');
     });
 });
-
 
 Route::controller(LivewireTestController::class)
 ->prefix('livewire-test')->name('livewire-test.')->group(function(){
