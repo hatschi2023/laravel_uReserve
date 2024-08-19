@@ -19,6 +19,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -66,4 +67,5 @@ class User extends Authenticatable
         return $this->belongsToMany(Event::class, 'reservations')
         ->withPivot('id', 'number_of_people', 'canceled_date');
     }
+
 }
