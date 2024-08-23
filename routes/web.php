@@ -6,7 +6,7 @@ use App\Http\Controllers\AlpineTestController;
 use App\Http\Controllers\EventController;
 use Barryvdh\Debugbar\DataCollector\EventCollector;
 use App\Http\Controllers\ReservationController;
-
+use App\Http\Controllers\MyPageController;
 
 
 Route::get('/', function () {
@@ -23,8 +23,10 @@ Route::prefix('manager')
 Route::middleware('can:user-higher')
 ->group(function(){
     Route::get('/dashboard', [ReservationController::class, 'dashboard'])->name('dashboard');
+    Route::get('/mypage', [MyPageController::class, 'index'])->name('mypage.index');
+    Route::get('/mypage/{id}', [MyPageController::class, 'show'])->name('mypage.show');
+    Route::post('/mypage/{id}', [MyPageController::class, 'cancel'])->name('mypage.cancel');
     Route::post('/{id}', [ReservationController::class, 'reserve'])->name('events.reserve');
-
 });
 Route::get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
 
