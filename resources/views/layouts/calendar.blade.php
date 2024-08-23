@@ -39,7 +39,6 @@
             </main>
         </div>
 
-        <!-- @livewire('calendar') -->
         @livewireScripts
     </body>
 </html>
