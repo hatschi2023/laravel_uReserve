@@ -1,21 +1,3 @@
-<x-calendar-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            イベントカレンダー
-        </h2>
-    </x-slot>
-
-    <div class="py-4">
-        <div class="event-calendar mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                @livewire('calendar')
-            </div>
-        </div>
-    </div>
-</x-calendar-layout>
-
-
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -39,10 +21,24 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
-        カレンダー
-        <x-input id="calendar" class="block mt-1 w-full" type="text" name="calendar"/>
+
+        <div class="min-h-screen bg-gray-100">
+
+            <!-- Page Heading -->
+            @if (isset($header))
+                <header class="bg-white shadow">
+                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endif
+
+            <!-- Page Content -->
+            <main>
+                {{ $slot }}
+            </main>
+        </div>
+
         @livewireScripts
     </body>
 </html>
-
-
