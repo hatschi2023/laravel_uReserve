@@ -1,12 +1,12 @@
 <div>
-<div class="text-center text-sm">
+<div class="text-center text-sm py-2">
     日付を選択してください。本日から最大30日先まで選択できます。
 </div>
 
 <input id="calendar" class="block mt-1 mb-2 mx-auto" type="text" name="calendar" value="{{ $currentDate }}"
 wire:change="getDate($event.target.value)" />
 
-<div class="flex border border-green-400 mx-auto">
+<div class="flex mx-auto">
     <x-calendar-time />
     @for ($i = 0; $i < 7; $i++)
 

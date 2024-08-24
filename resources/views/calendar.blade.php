@@ -8,14 +8,14 @@
     <div class="py-4">
         <div class="event-calendar mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                @livewire('calendar')
-            </div>
+              @livewire('calendar')
+          </div>
         </div>
     </div>
 </x-calendar-layout>
 
 
-
+{{--
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -44,5 +44,5 @@
         @livewireScripts
     </body>
 </html>
-
+ --}}
 

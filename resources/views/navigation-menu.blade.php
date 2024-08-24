@@ -1,7 +1,3 @@
-@if (Auth::check())
-
-@endif
-
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,22 +26,8 @@
                 </div>
             </div>
 
-
-
-
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <!-- Teams Dropdown -->
-
-                {{-- 仮：ログインしていないとエラーが出るため --}}
-                {{-- @if (!Auth::check())
-                    <span class="inline-flex rounded-md">
-                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50">
-                            Guest
-                        </button>
-                    </span>
-                @endif --}}
-
-
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                     <div class="ml-3 relative">
                         <x-dropdown align="right" width="60">
@@ -100,11 +82,8 @@
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
 
-
-
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                     <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-
 
                                         <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
                                     </button>
@@ -152,8 +131,6 @@
                     </x-dropdown>
                 </div>
             </div>
-
-
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
@@ -253,6 +230,5 @@
             </div>
         </div>
     </div>
-
 </nav>
 
