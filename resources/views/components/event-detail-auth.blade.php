@@ -19,9 +19,8 @@
                     </div>
                 @endif
 
-                <form method="get" action="{{ route('events.edit', ['event' => $event->id ]) }}">
+                <form method="post" action="{{ route('events.reserve', ['id' => $event->id ]) }}">
                     @csrf
-
                     <div>
                         <x-label for="event_name" value="イベント名" />
                         {{ $event->name }}
@@ -54,9 +53,30 @@
                             <x-label for="max_people" value="定員数" />
                             {{ $event->max_people }}
                         </div>
-                        <x-button class="ml-4">
-                            予約する
-                        </x-button>
+                        <div class="mt-4">
+                            @if($reservablePeople <= 0)
+                                <span class="text-red-500 text-xs">このイベントは満員です。</span>
+                            @else
+
+                            <x-label for="reserved_people" value="予約人数" />
+                            <select name="reserved_people" id="">
+                                @for ($i = 1; $i <= $reservablePeople; $i++ )
+                                    <option value="{{$i}}">{{$i}}</option>
+                                @endfor
+                            </select>
+                            @endif
+                        </div>
+                        @if ($isReserved === null)
+                            <input type="hidden" name="id" value="{{ $event->id }}">
+                            @if($reservablePeople > 0)
+                            <x-button class="ml-4">
+                                予約する
+                            </x-button>
+                            @endif
+                        @else
+                            <span class="text-xs">このイベントは既に予約済みです</span>
+                        @endif
+
                     </div>
                 </form>
                 </div>

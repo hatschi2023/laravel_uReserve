@@ -12,6 +12,6 @@ class CalendarLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.app');
+        return view('layouts.calendar');
     }
 }
