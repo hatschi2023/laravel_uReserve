@@ -20,9 +20,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    {{-- <body class="font-sans antialiased"> --}}
     <body class="font-sans antialiased bg-cover bg-center" style="background-image: url('images/sky.jpg');">
-        {{-- <div class="min-h-screen bg-gray-100> --}}
         <x-banner />
         <div class="min-h-screen bg-gray-100 bg-opacity-50">
             @if (Route::has('login'))
@@ -41,7 +39,6 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                {{-- <header class="bg-sky-300 shadow"> --}}
                 <header class="bg-sky-300 bg-opacity-50 shadow">
                     <div class="max-w-7xl mx-auto py-2 px-12 sm:px-6 lg:px-8">
                         {{ $header }}

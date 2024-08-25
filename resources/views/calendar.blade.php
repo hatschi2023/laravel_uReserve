@@ -1,5 +1,4 @@
 <x-calendar-layout>
-    {{-- <div class="min-h-screen bg-cover bg-center"> --}}
     <x-slot name="header">
         <div class="flex ">
             <!-- Logo -->
