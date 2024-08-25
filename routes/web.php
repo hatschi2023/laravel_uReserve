@@ -28,8 +28,8 @@ Route::middleware('can:user-higher')
     Route::post('/mypage/{id}', [MyPageController::class, 'cancel'])->name('mypage.cancel');
     Route::post('/{id}', [ReservationController::class, 'reserve'])->name('events.reserve');
 });
-// Route::get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
-Route::middleware('auth')->get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
+Route::get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
+// Route::middleware('auth')->get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
 
 
 Route::controller(LivewireTestController::class)

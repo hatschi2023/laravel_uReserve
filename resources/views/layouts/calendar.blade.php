@@ -20,8 +20,11 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    {{-- <body class="font-sans antialiased"> --}}
+    <body class="font-sans antialiased bg-cover bg-center" style="background-image: url('images/sky.jpg');">
+        {{-- <div class="min-h-screen bg-gray-100> --}}
+        <x-banner />
+        <div class="min-h-screen bg-gray-100 bg-opacity-50">
             @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
@@ -38,8 +41,9 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                {{-- <header class="bg-sky-300 shadow"> --}}
+                <header class="bg-sky-300 bg-opacity-50 shadow">
+                    <div class="max-w-7xl mx-auto py-2 px-12 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>
                 </header>
@@ -50,7 +54,7 @@
                 {{ $slot }}
             </main>
         </div>
-
+        @stack('modals')
         @livewireScripts
     </body>
 </html>

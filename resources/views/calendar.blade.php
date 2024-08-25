@@ -1,8 +1,18 @@
 <x-calendar-layout>
+    {{-- <div class="min-h-screen bg-cover bg-center"> --}}
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            イベントカレンダー
-        </h2>
+        <div class="flex ">
+            <!-- Logo -->
+            <div class="w-20 shrink-0 flex items-center">
+                <a href="{{ route('dashboard') }}">
+                    <x-application-mark class="block h-9 w-auto" />
+                </a>
+            </div>
+
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight pl-12 pt-12">
+                イベントカレンダー
+             </h2>
+        </div>
     </x-slot>
 
     <div class="py-4">
@@ -13,36 +23,3 @@
         </div>
     </div>
 </x-calendar-layout>
-
-
-{{--
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css',
-        'resources/js/app.js',
-        'resources/js/flatpickr.js'
-        ])
-
-        <!-- Styles -->
-        @livewireStyles
-    </head>
-    <body class="font-sans antialiased">
-        カレンダー
-        <x-input id="calendar" class="block mt-1 w-full" type="text" name="calendar"/>
-        @livewireScripts
-    </body>
-</html>
- --}}
-
