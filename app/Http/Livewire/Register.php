@@ -34,7 +34,7 @@ class Register extends Component
             'password' => Hash::make($this->password),
         ]);
 
-        session()->flash('message', '登録OKです');
+        session()->flash('message', '登録しました');
         return to_route('livewire-test.index');
     }
 

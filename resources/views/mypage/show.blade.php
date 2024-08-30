@@ -13,47 +13,60 @@
                     <x-validation-errors class="mb-4" />
 
                     @if (session('status'))
-                    <div class="mb-4 font-medium text-sm text-green-600">
+                    <div class="py-4 font-medium text-sm text-green-600 bg-green-50">
                         {{ session('status') }}
                     </div>
                     @endif
 
                     <div>
                         <x-label for="event_name" value="イベント名" />
-                        {{ $event->name }}
+                        <div class="mx-4 mt-1">
+                            {{ $event->name }}
+                        </div>
                     </div>
 
                     <div class="mt-4">
                         <x-label for="information" value="イベント詳細" />
-                        {!! nl2br(e($event->information)) !!}
+                        <div class="mx-4 mt-1">
+                            {!! nl2br(e($event->information)) !!}
+                        </div>
                     </div>
 
                     <div class="md:flex justify-between">
                         <div class="mt-4">
                             <x-label for="event_date" value="イベント日付" />
-                            {{ $event->eventDate }}
+                            <div class="mx-4 mt-1">
+                                {{ $event->eventDate }}
+                            </div>
                         </div>
 
                         <div class="mt-4">
                             <x-label for="start_time" value="開始時間" />
-                            {{ $event->startTime }}
+                            <div class="mx-4 mt-1">
+                                {{ $event->startTime }}
+                            </div>
                         </div>
 
                         <div class="mt-4">
                             <x-label for="end_time" value="終了時間" />
-                            {{ $event->endTime }}
-                                            </div>
-                                        </div>
+                            <div class="mx-4 mt-1">
+                                {{ $event->endTime }}
+                            </div>
+                        </div>
+                    </div>
 
                     <form id="cancel_{{ $event->id }}" method="post" action="{{ route('mypage.cancel', ['id' => $event->id ]) }}">
                         @csrf
                     <div class="md:flex justify-between items-end">
                         <div class="mt-4">
                             <x-label value="予約人数" />
-                            {{ $reservation->number_of_people }}
+                            <div class="mx-4 mt-1">
+                                {{ $reservation->number_of_people }}
+                            </div>
                         </div>
                         @if($event->eventDate >= \Carbon\Carbon::today()->format('Y年m月d日'))
-                        <a href="#" data-id="{{ $event->id }}" onclick="cancelPost(this)" class="ml-4  text-white py-2 px-4 rounded" style="background-color: black" >
+                        <a href="#" data-id="{{ $event->id }}" onclick="cancelPost(this)"
+                            class="inline-flex items-center justify-center h-12 w-28 bg-gray-500 rounded-md font-semibold text-white hover:bg-gray-600 focus:bg-gray-600">
                             キャンセルする
                         </a>
                         @endif

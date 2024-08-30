@@ -17,6 +17,10 @@ class MyPageService
         {
             foreach($events->sortBy('start_date') as $event)
             {
+               // 論理削除されたイベントを除外
+               if (!is_null($event->deleted_at))
+                { continue;}
+                
                 if(is_null($event->pivot->canceled_date) &&
                 $event->start_date >= Carbon::now()->format('Y-m-d 00:00:00'))
                 {
