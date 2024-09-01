@@ -29,15 +29,13 @@ Route::middleware('can:user-higher')
     Route::post('/{id}', [ReservationController::class, 'reserve'])->name('events.reserve');
 });
 Route::get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
-// Route::middleware('auth')->get('/{id}', [ReservationController::class, 'detail'])->name('events.detail');
 
+// Route::controller(LivewireTestController::class)
+// ->prefix('livewire-test')->name('livewire-test.')->group(function(){
+//     Route::get('index', 'index')->name('index');
+//     Route::get('register', 'register')->name('register');
+// });
 
-Route::controller(LivewireTestController::class)
-->prefix('livewire-test')->name('livewire-test.')->group(function(){
-    Route::get('index', 'index')->name('index');
-    Route::get('register', 'register')->name('register');
-});
-
-Route::get('alpine-test/index', [AlpineTestController::class,'index']);
+// Route::get('alpine-test/index', [AlpineTestController::class,'index']);
 
 

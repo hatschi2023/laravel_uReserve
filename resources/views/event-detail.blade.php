@@ -1,5 +1,3 @@
-{{-- @dd($event,$reservablePeople,$isReserved); --}}
-
 @auth
 <x-event-detail-auth
 :event='$event'

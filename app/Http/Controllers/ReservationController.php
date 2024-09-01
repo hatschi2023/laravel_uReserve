@@ -64,7 +64,7 @@ class ReservationController extends Controller
                 'number_of_people' => $request['reserved_people'],
             ]);
 
-            session()->flash('status', '登録OKです');
+            session()->flash('status', '登録しました');
             return to_route('dashboard');
         }
         else{

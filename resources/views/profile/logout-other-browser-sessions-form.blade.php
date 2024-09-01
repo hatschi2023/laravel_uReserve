@@ -1,15 +1,15 @@
 <x-action-section>
     <x-slot name="title">
-        {{ __('Browser Sessions') }}
+        {{ __('セッション情報') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Manage and log out your active sessions on other browsers and devices.') }}
+        {{ __('他のブラウザやデバイス上のアクティブなセッションを管理およびログアウトします。') }}
     </x-slot>
 
     <x-slot name="content">
         <div class="max-w-xl text-sm text-gray-600">
-            {{ __('If necessary, you may log out of all of your other browser sessions across all of your devices. Some of your recent sessions are listed below; however, this list may not be exhaustive. If you feel your account has been compromised, you should also update your password.') }}
+            {{ __('必要に応じて、すべてのデバイスで他のすべてのブラウザ セッションからログアウトできます。最近のセッションの一部を以下に示します。ただし、このリストは網羅的ではない可能性があります。アカウントが侵害されたと思われる場合は、パスワードも更新する必要があります。') }}
         </div>
 
         @if (count($this->sessions) > 0)
@@ -53,11 +53,11 @@
 
         <div class="flex items-center mt-5">
             <x-button wire:click="confirmLogout" wire:loading.attr="disabled">
-                {{ __('Log Out Other Browser Sessions') }}
+                {{ __('セッションをログアウトする') }}
             </x-button>
 
             <x-action-message class="ml-3" on="loggedOut">
-                {{ __('Done.') }}
+                {{ __('ログアウトしました。') }}
             </x-action-message>
         </div>
 

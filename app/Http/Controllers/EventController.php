@@ -19,10 +19,11 @@ class EventController extends Controller
         $reservedPeople = DB::table('reservations')
         ->select('event_id', DB::raw('sum(number_of_people) as number_of_people'))
         ->whereNull('canceled_date')
+        ->whereNull('deleted_at')
         ->groupBy('event_id');
-        // dd($reservedPeople);
 
         $events = DB::table('events')
+        ->whereNull('deleted_at')
         ->leftJoinSub($reservedPeople, 'reservedPeople', function($join){
             $join->on('events.id', '=', 'reservedPeople.event_id');
         })
@@ -62,7 +63,7 @@ class EventController extends Controller
             'is_visible' => $request['is_visible'],
         ]);
 
-        session()->flash('status', '登録OKです');
+        session()->flash('status', '登録しました');
         return to_route('events.index');
     }
 
@@ -164,6 +165,8 @@ class EventController extends Controller
 
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+        return redirect()->route('events.index')
+        ->with('status', 'イベントが削除されました');
     }
 }

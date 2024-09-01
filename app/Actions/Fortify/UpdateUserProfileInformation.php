@@ -39,7 +39,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     }
 
     /**
-     * Update the given verified user's profile information.
+     * Update the given verified user's .
      *
      * @param  array<string, string>  $input
      */

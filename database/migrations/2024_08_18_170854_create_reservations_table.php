@@ -19,15 +19,11 @@ return new class extends Migration
             $table->foreignId('event_id')->constrained()->onUpdate('cascade');
             $table->integer('number_of_people');
             $table->datetime('canceled_date')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('reservations');

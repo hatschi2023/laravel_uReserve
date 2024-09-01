@@ -14,7 +14,7 @@
 
                     <div class="container px-5 py-4 mx-auto">
                         @if (session('status'))
-                            <div class="mb-4 font-medium text-sm text-green-600">
+                            <div class="px-4 py-4 font-medium text-sm text-green-600 bg-green-50">
                                 {{ session('status') }}
                             </div>
                         @endif
@@ -23,12 +23,12 @@
                             <table class="table-auto w-full text-left whitespace-no-wrap">
                             <thead>
                                 <tr>
-                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">イベント名</th>
-                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">開始日時</th>
-                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">終了日時</th>
-                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">予約人数</th>
-                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">定員</th>
-                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br">表示・非表示</th>
+                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tl rounded-bl">イベント名</th>
+                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">開始日時</th>
+                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">終了日時</th>
+                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">予約人数</th>
+                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200">定員</th>
+                                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-tr rounded-br text-center">表示</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,7 +45,7 @@
                                     @endif
                                 </td>
                                 <td class="px-4 py-3">{{ $event->max_people }}</td>
-                                <td class="px-4 py-3">{{ $event->is_visible }}</td>
+                                <td class="px-4 py-3 text-center">{{ $event->is_visible  === 1 ? '〇' : '-' }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>

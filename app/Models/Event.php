@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+
 use Carbon\Carbon;
 use App\Models\User;
 
@@ -12,6 +14,7 @@ use App\Models\User;
 class Event extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $fillable = [
         'name',
@@ -49,11 +52,26 @@ class Event extends Model
         );
     }
 
+    // EventとUserの多対多リレーション
     public function users()
     {
         return $this->belongsToMany(User::class, 'reservations')
         ->withPivot(['id', 'number_of_people', 'canceled_date']);
     }
 
+    // EventとReservationの1対多リレーション
+    public function reservations()
+    {
+        return $this->hasMany(Reservation::class);
+    }
+
+    //Event 削除時に関連する reservations を論理削除
+    protected static function boot()
+    {
+        parent::boot();
+        static::deleting(function($event){
+            $event->reservations()->delete();//論理削除
+        });
+    }
 
 }
