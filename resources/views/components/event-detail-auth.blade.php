@@ -13,7 +13,7 @@
                     <x-validation-errors class="mb-4" />
 
                 @if (session('status'))
-                    <div class="py-4 font-medium text-sm text-green-600 bg-green-50">
+                    <div class="px-4 py-4 font-medium text-sm text-green-600 bg-green-50">
                         {{ session('status') }}
                     </div>
                 @endif
@@ -64,20 +64,19 @@
                                 {{ $event->max_people }}
                             </div>
                         </div>
-                        @if ($reservablePeople <= 0)
-                            <span class="text-s text-red-600 bg-red-100 mx-4 px-4 py-2">このイベントは満員です</span>
-                        @endif
-                        @if ($event->eventDate  >= now()->format('Y年m月d日'))
-                            <div class="mt-4">
+
+                        <div class="mt-4">
                             <x-label for="reserved_people" value="予約可能人数" />
                             <select class="mx-4 mt-1" name="reserved_people" id="">
                                 @for ($i = 1; $i <= $reservablePeople; $i++ )
-                                <option value="{{$i}}">{{$i}}</option>
+                                    <option value="{{$i}}">{{$i}}</option>
                                 @endfor
                             </select>
-                            </div>
+                        </div>
+
+                        @if ($reservablePeople <= 0)
+                            <span class="text-s text-red-600 bg-red-100 mx-4 px-4 py-2">このイベントは満員です</span>
                         @endif
-                        {{-- @dd($event->eventDate, now()->format('Y年m月d日'), $event->eventDate >= now()->format('Y年m月d日')) --}}
 
                         @if (is_null($isReserved) && $event->eventDate >= now()->format('Y年m月d日'))
                             <input type="hidden" name="id" value="{{ $event->id }}">
@@ -88,7 +87,6 @@
                             @endif
                         @elseif (($isReserved) ==! null)
                             <span class="text-s text-red-600 bg-red-100  px-4 py-2">予約済み</span>
-
                         @endif
                         </div>
                     </div>

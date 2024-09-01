@@ -12,7 +12,7 @@
 
                     <div class="container px-5 py-4 mx-auto">
                         @if (session('status'))
-                            <div class="py-4 font-medium text-sm text-green-600 bg-green-50">
+                            <div class="px-4 py-4 font-medium text-sm text-green-600 bg-green-50">
                                 {{ session('status') }}
                             </div>
                         @endif

@@ -9,12 +9,11 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-100 overflow-hidden shadow-xl sm:rounded-lg">
 
-
                 <div class="max-w-2xl py-4 mx-auto">
                     <x-validation-errors class="mb-4" />
 
                 @if (session('status'))
-                    <div class="py-4 font-medium text-sm text-green-600 bg-green-50">
+                    <div class="px-4 py-4 font-medium text-sm text-green-600 bg-green-50">
                         {{ session('status') }}
                     </div>
                 @endif

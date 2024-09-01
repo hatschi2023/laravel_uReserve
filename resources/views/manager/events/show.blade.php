@@ -12,7 +12,7 @@
             <div class="max-w-2xl py-4 mx-auto">
                 <x-validation-errors class="mb-4" />
                 @if (session('status'))
-                    <div class="py-4 font-medium text-sm text-green-600 bg-green-50">
+                    <div class="px-4 py-4 font-medium text-sm text-green-600 bg-green-50">
                         {{ session('status') }}
                     </div>
                 @endif
@@ -111,7 +111,7 @@
                                 <tr>
                                     <th class="px-4 pt-3 pb-1title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-l">予約者</th>
                                     <th class="px-4 pt-3 pb-1 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 ">予約人数</th>
-                                    <th class="px-4 pt-3 pb-1 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-r">残り予約枠</th>
+                                    <th class="px-4 pt-3 pb-1 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-200 rounded-r">残りの予約枠</th>
                                 </tr>
                             </thead>
                             <tbody>
